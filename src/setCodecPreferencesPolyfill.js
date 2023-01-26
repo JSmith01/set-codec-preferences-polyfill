@@ -121,8 +121,12 @@ function adjustDescription(description) {
     if (description.type === 'rollback') return  description;
 
     /** @this {RTCPeerConnection} */
-    const transceivers = this.getTransceivers();
-    if (transceivers.every(transceiver => !transceiver.hasOwnProperty(preferenceKey))) {
+    const transceivers = this.getTransceivers().filter(tr => !tr.stopped);
+    if (!transceivers.some(
+        transceiver =>
+            transceiver.hasOwnProperty(preferenceKey) ||
+            transceiver.sender.hasOwnProperty(streamsKey)
+    )) {
         return description;
     }
 
