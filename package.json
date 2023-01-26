@@ -7,9 +7,15 @@
   "main": "dist/set-codec-preferences-polyfill.js",
   "devDependencies": {
     "@rollup/plugin-terser": "^0.2.1",
-    "rollup": "^3.8.1"
+    "jest": "^29.4.1",
+    "rollup": "^3.8.1",
+    "rollup-jest": "^3.1.0"
   },
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "rollup-jest"
   }
 }

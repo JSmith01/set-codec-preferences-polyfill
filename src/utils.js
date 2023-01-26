@@ -51,7 +51,7 @@ function splitSdpToSections(sdp) {
         section.split('\n').map(
             (line, j) => (i > 0 && j === 0 ? 'm=' + line : line).trim()
         ).filter(Boolean)
-    );
+    ).filter(section => section.length > 0);
 }
 
 /**
