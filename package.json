@@ -1,9 +1,10 @@
 {
   "name": "set-codec-preferences-polyfill",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "RTCRtpTransceiver.prototype.setCodecPreferences polyfill",
   "author": "Dmitry Zlygin <dzlygin@gmail.com>",
   "license": "MIT",
+  "main": "dist/set-codec-preferences-polyfill.js",
   "devDependencies": {
     "@rollup/plugin-terser": "^0.2.1",
     "rollup": "^3.8.1"

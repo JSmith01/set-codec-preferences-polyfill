@@ -29,3 +29,9 @@ the first call, otherwise it won't check if provided codecs list is fine or not.
 Some issues might occur with a resulting SDP if RTX is removed from the offer/answer. A browser
 tries to create SSRC and ssrc group for a section track and a RTX for it. Polyfill would remove
 the codec information only, and won't touch nor additional SSRC neither ssrc-group attribute.
+
+
+## RTCRtpSender.prototype.setStreams
+
+Works like the same API in Chrome, doesn't add streams but rewrites all previous msid-s. A call with
+no arguments would result in msid becoming '-'.

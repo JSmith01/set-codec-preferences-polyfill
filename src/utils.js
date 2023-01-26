@@ -90,5 +90,13 @@ function joinSplittedSdp(splittedSdp) {
     return splittedSdp.map(lines => lines.join('\r\n') + '\r\n').join('');
 }
 
+const getTwoBytes = () => (Math.random() * 65536 | 0).toString(16).padStart(4, '0');
+const getUuidV4 = () => [
+    getTwoBytes() + getTwoBytes(),
+    getTwoBytes(),
+    getTwoBytes(),
+    getTwoBytes(),
+    getTwoBytes() + getTwoBytes() + getTwoBytes()
+].join('-');
 
-export { splitSdpToSections, getCodecsFromSection, joinSplittedSdp, areCodecsEqual };
+export { splitSdpToSections, getCodecsFromSection, joinSplittedSdp, areCodecsEqual, getUuidV4 };
