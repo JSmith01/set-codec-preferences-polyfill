@@ -1,7 +1,7 @@
 /**
- * @param {'audio' | 'video' } kind
+ * @param {'audio' | 'video'} kind
  * @param {string} line
- * @returns {(*|{mimeType: string, clockRate: number})[]}
+ * @returns {[string, RTCRtpCodecCapability]}
  */
 function parseRtpmapLine(kind, line) {
     const [id, codecName] = line.slice(line.indexOf(':') + 1).split(' ');
@@ -19,7 +19,7 @@ function parseRtpmapLine(kind, line) {
  * @returns {[id: string, codecInfo: RTCRtpCodecCapability][]}
  */
 function getCodecsFromSection(section) {
-    if (!section[0].startsWith('m=')) return [];
+    if (!section[0]?.startsWith('m=')) return [];
 
     const [kind , , , ...codecIds] = section[0].slice(section[0].indexOf('=') + 1).split(' ');
 
